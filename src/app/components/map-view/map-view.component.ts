@@ -10,6 +10,7 @@ import * as L from 'leaflet';
 })
 export class MapViewComponent implements OnInit {
   pointsReady = false;
+  map: L.Map = null;
 
   points: Array<Point> = [];
 
@@ -32,10 +33,15 @@ export class MapViewComponent implements OnInit {
   }
 
   onMapReady(map: L.Map) {
+    this.map = map;
     for (const point of this.points) {
       L.circle([point.latitude, point.longitude], 20, {fill: true})
         .bindPopup('<b>' + point.name + '</b> <br>' + point.description).addTo(map);
     }
+  }
+
+  rowClicked(point: Point) {
+    this.map.setView(new L.LatLng(point.latitude, point.longitude), 15);
   }
 
 }

@@ -1,34 +1,40 @@
-<div *ngIf="!(pointsReady)" style="width: 100%; text-align: center;" >
-  <div class="loader" style="margin: auto"></div>
-</div>
-
-<div *ngIf="pointsReady">
-  <div style="height: 500px;"
-       leaflet
-       [leafletOptions]="options"
-       (leafletMapReady)="onMapReady($event)">
+<div class="row" *ngIf="!(pointsReady)">
+  <div style="width: 100%; text-align: center;" class="col-lg-12">
+    <div class="loader" style="margin: auto"></div>
   </div>
-
-  <table class="table table-hover" style="margin-top: 10px">
-    <thead class="bg-dark text-white">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Latitude</th>
-      <th scope="col">Longitude</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let point of points">
-      <th scope="row">{{point.id}}</th>
-      <td>{{point.name}}</td>
-      <td>{{point.description}}</td>
-      <td>{{point.latitude}}</td>
-      <td>{{point.longitude}}</td>
-    </tr>
-    </tbody>
-  </table>
-
 </div>
+
+<div class="row" *ngIf="pointsReady">
+  <div class="col-lg-4">
+    <table class="table table-hover table-sm" style="margin-top: 10px;">
+      <thead class="bg-dark text-white">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Latitude</th>
+        <th scope="col">Longitude</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let point of points" (click)="rowClicked(point)">
+        <th scope="row">{{point.id}}</th>
+        <td>{{point.name}}</td>
+        <td>{{point.latitude}}</td>
+        <td>{{point.longitude}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-lg-8">
+    <div style="height: 500px;"
+         leaflet
+         [leafletOptions]="options"
+         (leafletMapReady)="onMapReady($event)">
+    </div>
+  </div>
+</div>
+
+
+
+
 
