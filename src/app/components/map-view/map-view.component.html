@@ -1,10 +1,18 @@
-<div style="height: 500px;"
-     leaflet
-     [leafletOptions]="options">
+<div *ngIf="!(pointsReady)" style="width: 100%; text-align: center;" >
+  <div class="loader" style="margin: auto"></div>
 </div>
 
-<div>
+<div *ngIf="pointsReady">
+  <div style="height: 500px;"
+       leaflet
+       [leafletOptions]="options"
+       (leafletMapReady)="onMapReady($event)">
+  </div>
+
+  <div>
   <span *ngFor="let point of points">
     {{point.name}} {{point.description}} {{point.latitude}} {{point.longitude}}
   </span>
+  </div>
 </div>
+
