@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {PointsService} from '../../services/points/points.service';
+import {Point} from '../../common/point';
 
 @Component({
   selector: 'app-map-view',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./map-view.component.css']
 })
 export class MapViewComponent implements OnInit {
+  points: Array<Point> = [];
 
-  constructor() { }
+
+  constructor(private pointsService: PointsService) { }
 
   ngOnInit() {
+    this.pointsService.getPoints().subscribe(points => {
+      this.points = points;
+    });
   }
 
 }

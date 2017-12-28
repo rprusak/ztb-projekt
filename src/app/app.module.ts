@@ -1,12 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { MapViewComponent } from './components/map-view/map-view.component';
-import { PointsListViewComponent } from './components/points-list-view/points-list-view.component';
-import { AddPointsViewComponent } from './components/add-points-view/add-points-view.component';
+import {AppComponent} from './app.component';
+import {NavigationComponent} from './components/navigation/navigation.component';
+import {MapViewComponent} from './components/map-view/map-view.component';
+import {PointsListViewComponent} from './components/points-list-view/points-list-view.component';
+import {AddPointsViewComponent} from './components/add-points-view/add-points-view.component';
+import {PointsService} from './services/points/points.service';
 
 const appRoutes: Routes = [
   {
@@ -25,10 +27,6 @@ const appRoutes: Routes = [
     path: '',
     redirectTo: '/map',
     pathMatch: 'full'
-  },
-  {
-    path: '**',
-    redirectTo: '/map'
   }
 ];
 
@@ -44,9 +42,12 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(
       appRoutes
-    )
+    ),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PointsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

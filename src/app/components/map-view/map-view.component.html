@@ -1,3 +1,9 @@
 <p>
   map-view works!
 </p>
+
+<div>
+  <span *ngFor="let point of points">
+    {{point.name}} {{point.description}} {{point.latitude}} {{point.longitude}}
+  </span>
+</div>
