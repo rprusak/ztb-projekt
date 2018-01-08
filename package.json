@@ -23,10 +23,11 @@
     "@angular/router": "^5.0.0",
     "@asymmetrik/angular2-leaflet": "^2.2.1",
     "body-parser": "^1.18.2",
-    "bootstrap": "^4.0.0-beta.2",
+    "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "express": "^4.16.2",
     "leaflet": "^1.2.0",
+    "pg-query": "^0.11.0",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },
