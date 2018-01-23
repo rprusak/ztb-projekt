@@ -2,12 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
-const pg = require('pg-query')
-//TODO: change database location and enable
-// pg.connectionParameters = 'postgres://postgres:qwerty@localhost:5432/postgis_24_sample';
+const pg  = require('pg');
 
-// API file for interacting with MongoDB
-const api = require('./server/api');
+const config = {
+  user: 'osboxes',
+  database: 'osboxes',
+  password: 'osboxes',
+  port: 5432
+};
+
+const pool = new pg.Pool(config);
 
 // Parsers
 app.use(bodyParser.json());
@@ -16,22 +20,22 @@ app.use(bodyParser.urlencoded({ extended: false}));
 // Angular DIST output folder
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use('/api', api);
 
-//TODO: enable when database will be set
-// app.get('/api/points', function(req, res) {
-//   var query = req.query;
-//   var limit = (typeof(query.limit) !== "undefined") ? query.limit : 40;
-// //TODO: change particular particular names
-//   pg('SELECT id,name,ST_X(punkt) as longitude,ST_Y(punkt) as latitude FROM miasta ;', function(err, rows, result){
-//     if(err) {
-//       res.send(500, {http_status:500,error_msg: err})
-//       return console.error('error running query', err);
-//     }
-//     res.send(rows);
-//     return rows;
-//   })
-// });
+app.get('/api/points', function(req, res) {
+  pool.connect(function (err, client, done) {
+    if (err) {
+      console.log("Could not connect to database: " + err);
+    }
+    client.query('SELECT label, height, arm_length,  ST_X(position) as longitude, ST_Y(position) as latitude FROM krakow_oprawy', function (err, result) {
+      done();
+      if (err) {
+        console.log(err);
+        res.status(400).send(err);
+      }
+      res.status(200).send(result.rows);
+    })
+  })
+});
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));

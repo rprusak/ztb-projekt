@@ -36,7 +36,8 @@ export class MapViewComponent implements OnInit {
     this.map = map;
     for (const point of this.points) {
       L.circle([point.latitude, point.longitude], 20, {fill: true})
-        .bindPopup('<b>' + point.name + '</b> <br>' + point.description).addTo(map);
+        .bindPopup('<b> Label: </b>' + point.label + '<br><b>Height: </b>' + point.height + '<br><b>Arm lenght:</b>'
+          + point.arm_length).addTo(map);
     }
   }
 

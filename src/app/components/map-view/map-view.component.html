@@ -9,18 +9,20 @@
     <table class="table table-hover table-sm" style="margin-top: 10px;">
       <thead class="bg-dark text-white">
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Latitude</th>
         <th scope="col">Longitude</th>
+        <th scope="col">Height</th>
+        <th scope="col">Arm length</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let point of points" (click)="rowClicked(point)">
-        <th scope="row">{{point.id}}</th>
-        <td>{{point.name}}</td>
+        <td>{{point.label}}</td>
         <td>{{point.latitude}}</td>
         <td>{{point.longitude}}</td>
+        <td>{{point.height}}</td>
+        <td>{{point.arm_length}}</td>
       </tr>
       </tbody>
     </table>

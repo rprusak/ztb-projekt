@@ -1,7 +1,7 @@
 export interface Point {
-  id: number;
-  name: string;
-  description: string;
+  label: string;
+  height: number;
+  arm_length: number;
   latitude: number;
   longitude: number;
 }
