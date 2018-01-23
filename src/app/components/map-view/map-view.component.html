@@ -17,7 +17,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let point of points" (click)="rowClicked(point)">
+      <tr *ngFor="let point of points | paginate: { itemsPerPage: 14, currentPage: p }" (click)="rowClicked(point)">
         <td>{{point.label}}</td>
         <td>{{point.latitude}}</td>
         <td>{{point.longitude}}</td>
@@ -26,13 +26,64 @@
       </tr>
       </tbody>
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    <div class="card" *ngIf="currentPoint">
+      <div class="card-header">
+        Selected point
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            Label:
+          </div>
+          <div class="col-6">
+            {{currentPoint.label}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            Latitude:
+          </div>
+          <div class="col-6">
+            {{currentPoint.latitude}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            Longitude:
+          </div>
+          <div class="col-6">
+            {{currentPoint.longitude}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            Height:
+          </div>
+          <div class="col-6">
+            {{currentPoint.height}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            Arm length:
+          </div>
+          <div class="col-6">
+            {{currentPoint.arm_length}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
   <div class="col-lg-8">
-    <div style="height: 500px;"
-         leaflet
-         [leafletOptions]="options"
-         (leafletMapReady)="onMapReady($event)">
-    </div>
+      <div style="height: 500px;"
+           leaflet
+           [leafletOptions]="options"
+           (leafletMapReady)="onMapReady($event)">
+      </div>
   </div>
 </div>
 

@@ -2203,14 +2203,14 @@ INSERT INTO krakow_oprawy VALUES('4099 III/23', ST_Point(19.90, 50.08), 5.95, 0.
 INSERT INTO krakow_oprawy VALUES('4099 III/24', ST_Point(19.90, 50.08), 5.05, 0.09);
 INSERT INTO krakow_oprawy VALUES('4099 III/25', ST_Point(19.90, 50.08), 5.95, 0.00);
 INSERT INTO krakow_oprawy VALUES('4099 III/26', ST_Point(19.90, 50.08), 5.05, 0.09);
-"4099 III/27 Wisz¹ca?",19.90,50.08,4.55,0.52
-"4099 III/28 Wisz¹ca?",19.90,50.08,4.55,0.52
+"4099 III/27 Wisz?ca?",19.90,50.08,4.55,0.52
+"4099 III/28 Wisz?ca?",19.90,50.08,4.55,0.52
 INSERT INTO krakow_oprawy VALUES('4099 III/29', ST_Point(19.90, 50.08), 5.95, 0.00);
 INSERT INTO krakow_oprawy VALUES('4099 III/3', ST_Point(19.90, 50.08), 5.52, 0.00);
 INSERT INTO krakow_oprawy VALUES('4099 III/30', ST_Point(19.90, 50.08), 5.05, 0.09);
 INSERT INTO krakow_oprawy VALUES('4099 III/31', ST_Point(19.90, 50.08), 5.05, 0.09);
-"4099 III/32 Wisz¹ca!",19.90,50.08,4.55,0.52
-"4099 III/33 Wisz¹ca!",19.90,50.08,4.55,0.52
+"4099 III/32 Wisz?ca!",19.90,50.08,4.55,0.52
+"4099 III/33 Wisz?ca!",19.90,50.08,4.55,0.52
 INSERT INTO krakow_oprawy VALUES('4099 III/34', ST_Point(19.90, 50.08), 5.95, 0.00);
 INSERT INTO krakow_oprawy VALUES('4099 III/35', ST_Point(19.90, 50.08), 5.05, 0.09);
 INSERT INTO krakow_oprawy VALUES('4099 III/36', ST_Point(19.90, 50.08), 5.05, 0.09);

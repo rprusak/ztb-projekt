@@ -27,6 +27,7 @@
     "core-js": "^2.4.1",
     "express": "^4.16.2",
     "leaflet": "^1.2.0",
+    "ngx-pagination": "^3.0.3",
     "pg": "^7.4.1",
     "pg-query": "^0.11.0",
     "rxjs": "^5.5.2",

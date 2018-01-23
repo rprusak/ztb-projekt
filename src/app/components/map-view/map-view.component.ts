@@ -11,7 +11,7 @@ import * as L from 'leaflet';
 export class MapViewComponent implements OnInit {
   pointsReady = false;
   map: L.Map = null;
-
+  currentPoint: Point = null;
   points: Array<Point> = [];
 
   options = {
@@ -42,7 +42,8 @@ export class MapViewComponent implements OnInit {
   }
 
   rowClicked(point: Point) {
-    this.map.setView(new L.LatLng(point.latitude, point.longitude), 15);
+    this.currentPoint = point;
+    this.map.setView(new L.LatLng(point.latitude, point.longitude), 20);
   }
 
 }
