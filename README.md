@@ -17,7 +17,7 @@ Konfiguracja bazy:
 ```
 CREATE EXTENSION postgis;
 CREATE TABLE krakow_oprawy(label TEXT NOT NULL, position GEOMETRY NOT NULL, height REAL NOT NULL, arm_length REAL NOT NULL);
-ALTER USER osboxes PASSWORD 'osboxes';
+ALTER USER <nazwa uzytkownika> PASSWORD '<haslo>';
 ```
 
 W pliku *server.js* znajduje się zmienna *config*, którą należy odpowiednio zdefiniować by móc połączyć się z bazą danych.
