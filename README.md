@@ -22,6 +22,12 @@ ALTER USER osboxes PASSWORD 'osboxes';
 
 W pliku *server.js* znajduje się zmienna *config*, którą należy odpowiednio zdefiniować by móc połączyć się z bazą danych.
 
+Uruchomienie projektu
+```
+ng build
+node server
+```
+
 Plik sql został wygenerowany po przez zastąpienie przecinków kropkami, średników przecinkami i wykonaniem funkcji find and replace:
 ```
 ^"([\d\w\s/]+)",([\d.]+),([\d.]+),([\d.]+),([\d.]+)$
