@@ -17,10 +17,16 @@ Konfiguracja bazy:
 ```
 CREATE EXTENSION postgis;
 CREATE TABLE krakow_oprawy(label TEXT NOT NULL, position GEOMETRY NOT NULL, height REAL NOT NULL, arm_length REAL NOT NULL);
-ALTER USER osboxes PASSWORD 'osboxes';
+ALTER USER <nazwa uzytkownika> PASSWORD '<haslo>';
 ```
 
 W pliku *server.js* znajduje się zmienna *config*, którą należy odpowiednio zdefiniować by móc połączyć się z bazą danych.
+
+Uruchomienie projektu
+```
+ng build
+node server
+```
 
 Plik sql został wygenerowany po przez zastąpienie przecinków kropkami, średników przecinkami i wykonaniem funkcji find and replace:
 ```
