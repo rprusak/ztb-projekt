@@ -37,6 +37,16 @@ app.get('/api/points', function(req, res) {
   })
 });
 
+app.get('/3d', (req, res) => {
+  console.log("dd");
+  res.sendFile(path.join(__dirname, '3d/index.html'));
+});
+
+app.get('/3d.js', (req, res) => {
+  console.log("dd");
+res.sendFile(path.join(__dirname, '3d/3d.js'));
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
